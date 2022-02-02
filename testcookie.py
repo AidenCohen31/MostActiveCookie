@@ -4,7 +4,7 @@ platforms = {
     'win32' : "most_active_cookie.bat",
     'linux' : "./most_active_cookie",
     'darwin' : "./most_active_cookie"
-}[sys.platform]
+}[sys.platform] #selects proper way to run file given a system
 class TestCMDLine(unittest.TestCase):
     """
     Tests all invalid command line inputs that are possible
@@ -43,6 +43,9 @@ class TestOperations(unittest.TestCase):
             self.assertEqual(msg, self.answers[i])
     
     def setUp(self):
+        """
+        sets up testcase data such as dates and expected output
+        """
         self.dates = ["2018-12-09","2018-12-08", "2018-12-07", "2018-12-06"]
         self.answers = ["AtY0laUfhglK3lC7","SAZuXPGUrfbcn5UA4sMM2LxV07bPJzwffbcn5UAVanZf6UtG","4sMM2LxV07bPJzwf","No data for date"]
         self.numtests = 4
